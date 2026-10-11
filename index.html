@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muslims Usual Day Tracking System</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+</head>
+<body>
+<header><a class="logo" href="#">☾ muslims<span> usual day</span></a>
+<nav><a href="#prayer">Prayer</a><a href="#resources">Resources</a><a href="#guidance">Guidance</a><a href="#community">Community</a></nav>
+<div class="auth-area"><button id="loginOpen" class="outline">Log in</button><button id="signupOpen">Sign up</button><div id="userMenu" hidden><span id="userLabel"></span><button id="logoutBtn" class="outline">Log out</button></div></div>
+<button id="mobileMenu" class="mobile-menu" aria-label="Toggle navigation">☰</button></header>
+<main>
+<section class="hero"><div><p class="eyebrow">YOUR DAILY COMPANION</p><h1>A little closer<br>to <em>Allah</em> every day...</h1><p class="lead">A peaceful space for prayer, learning and thoughtful conversations about Islam and all in one place...</p><a class="primary" href="#prayer">Explore today</a><p class="hero-small">Learn with care. Ask without fear. Grow at your own pace.</p></div><div class="art"><div class="moon">☾</div><div class="mosque">▰<br>▰ ▰ ▰<br>▰ ▰ ▰ ▰</div><p>Begin with intention ✦</p></div></section>
+<section id="prayer"><div class="heading"><div><p class="eyebrow">A MOMENT TO PAUSE</p><h2>Today, in prayer</h2></div><div><input id="city" value="Dhaka" aria-label="City"><button id="updatePrayer">Update</button></div></div><p id="prayerStatus">Loading prayer times…</p><div id="prayerGrid" class="prayer-grid"></div><small>Confirm local prayer timings with your trusted mosque.</small></section>
+<section id="resources"><p class="eyebrow">NOURISH YOUR SOUL</p><h2>Explore your faith</h2><div class="cards"><article><b>۞ QURAN</b><h3>Words to reflect on</h3><p>Read Quran translations and explore verses thoughtfully.</p><a href="https://quran.com/" target="_blank" rel="noopener">Explore Quran ↗</a></article><article><b>✺ DAILY DUAS</b><h3>Remember in every moment</h3><p>Find supplications and explore hadith references.</p><a href="https://sunnah.com/" target="_blank" rel="noopener">Explore Sunnah.com ↗</a></article><article><b>✧ LEARN</b><h3>Grow your understanding</h3><p>Use reliable sources and ask qualified scholars about complex matters.</p><a href="#community">Join the community →</a></article></div></section>
+<section id="guidance" class="dark"><div><p class="eyebrow">A SPACE TO ASK</p><h2>Questions are part<br>of the <em>journey.</em></h2><p>Explore general Islamic topics and find reliable resources. This prototype is not a fatwa service.</p></div><div class="chat"><h3>☾ Islamic Guidance <small>DEMO</small></h3><div id="messages" class="messages"><p class="bot">Assalamu alaikum! Ask a general question, or try one of the prompts below.</p></div><div class="prompts"><button data-prompt="Where can I read Quran with translation?">Quran resources</button><button data-prompt="How can I build a prayer routine?">Prayer routine</button><button data-prompt="How do I verify an Islamic reference?">Verify a source</button></div><form id="chatForm"><input id="chatInput" placeholder="Ask a general question…" maxlength="500" required><button>↑</button></form><small>Demo responses only. Consult a qualified scholar for personal or complex matters.</small></div></section>
+<section id="community"><div class="heading"><div><p class="eyebrow">LEARN TOGETHER</p><h2>A community that listens</h2><p>Ask anonymously, share helpful knowledge and keep conversations respectful.</p></div><button class="primary" id="askBtn">＋ Ask anonymously</button></div><div class="tools"><input id="search" placeholder="Search questions…"><select id="category"><option>All</option><option>Prayer</option><option>Quran</option><option>Duas</option><option>Daily life</option><option>Faith</option></select></div><div id="questions" class="question-grid"></div><p id="empty" hidden>No questions found. Be the first to ask!</p></section>
+<section class="notice"><b>Knowledge deserves care.</b><p>We encourage reliable sources, respectful discussion and qualified scholarly guidance.</p></section>
+</main>
+<footer>☾ muslims-usual-day-tracking-system <span>Developed with care by Ashrafia Noushe<span id="year"></span></span></footer>
+
+<dialog id="authDialog"><button type="button" class="close" id="closeAuth">×</button><p class="eyebrow">WELCOME TO MUSLIMSDAY</p><h2 id="authTitle">Log in to your account</h2><p id="authIntro" class="muted">Continue your learning journey.</p>
+<form id="authForm"><label id="nameField" hidden>Display name<input id="displayName" autocomplete="name" maxlength="60" placeholder="Your name"></label><label>Email address<input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters"></label><button id="authSubmit" class="primary full">Log in</button></form>
+<p class="auth-switch" id="authSwitch">New here? <button type="button" id="switchAuth">Create an account</button></p><p id="authMessage" role="status" class="auth-message"></p><small>Use an email you can access. Supabase may require email confirmation before your first login.</small></dialog>
+<dialog id="moderationDialog"><button class="close" id="closeMod">×</button><p class="eyebrow">DEMO MODERATOR TOOLS</p><h2>Reported content</h2><p>Demo panel only. Production moderation must verify the moderator role on the server.</p><div id="reports"></div><button id="clearReports">Clear resolved reports</button></dialog>
+<button id="modBtn" class="mod">⚑ Reports <span id="reportCount">0</span></button><div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
